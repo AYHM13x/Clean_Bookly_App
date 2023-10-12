@@ -8,5 +8,9 @@ const kGTSectraFine = "GT Sectra Fine";
 const kMontserrat = "Montserrat";
 const kRoboto = "Roboto";
 
+//api search
+const kAllFreeBooks = "Harry Potter";
+const kAllNewestFreeBooks = "head first";
+
 const kEuroSympol = "€";
 const kBorderRadiusValue = 15.0;
