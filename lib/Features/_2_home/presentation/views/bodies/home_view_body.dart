@@ -16,48 +16,59 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: DimensionsOfScreen.dimensionsOfWidth(context, 2),
-                ),
-                child: CustomHomeAppBar(
-                  image: AssetsData.logo,
-                  onPressedAppBar: () {
-                    GoRouter.of(context).push(AppRouter.searchViewPath);
-                  },
-                ),
-              ),
-              const BookCardsHomeListView(),
-              const SizedBox(
-                height: 36,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: DimensionsOfScreen.dimensionsOfWidth(context, 2),
-                ),
-                child: const Text(
-                  "Best Seller",
-                  style: Styles.textStyle18,
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-            ],
+    return Column(
+      children: [
+        //fixed app bar
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: DimensionsOfScreen.dimensionsOfWidth(context, 2),
+          ),
+          child: CustomHomeAppBar(
+            image: AssetsData.logo,
+            onPressedAppBar: () {
+              GoRouter.of(context).push(AppRouter.searchViewPath);
+            },
           ),
         ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: DimensionsOfScreen.dimensionsOfWidth(context, 2),
-            ),
-            child: const BestSellerListView(),
+        SizedBox(
+          height: DimensionsOfScreen.dimensionsOfHeight(context, 88),
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const BookCardsHomeListView(),
+                    const SizedBox(
+                      height: 36,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal:
+                            DimensionsOfScreen.dimensionsOfWidth(context, 2),
+                      ),
+                      child: const Text(
+                        "Best Seller",
+                        style: Styles.textStyle18,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                  ],
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal:
+                        DimensionsOfScreen.dimensionsOfWidth(context, 2),
+                  ),
+                  child: const BestSellerListView(),
+                ),
+              ),
+            ],
           ),
         ),
       ],
