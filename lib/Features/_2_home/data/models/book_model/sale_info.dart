@@ -1,10 +1,8 @@
-import 'package:equatable/equatable.dart';
-
 import 'list_price.dart';
 import 'offer.dart';
 import 'retail_price.dart';
 
-class SaleInfo extends Equatable {
+class SaleInfo {
   final String? country;
   final String? saleability;
   final bool? isEbook;
@@ -49,7 +47,6 @@ class SaleInfo extends Equatable {
         'offers': offers?.map((e) => e.toJson()).toList(),
       };
 
-  @override
   List<Object?> get props {
     return [
       country,

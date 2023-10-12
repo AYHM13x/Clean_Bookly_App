@@ -1,9 +1,7 @@
-import 'package:equatable/equatable.dart';
-
 import 'list_price.dart';
 import 'retail_price.dart';
 
-class Offer extends Equatable {
+class Offer {
   final int? finskyOfferType;
   final ListPrice? listPrice;
   final RetailPrice? retailPrice;
@@ -34,7 +32,6 @@ class Offer extends Equatable {
         'giftable': giftable,
       };
 
-  @override
   List<Object?> get props {
     return [
       finskyOfferType,

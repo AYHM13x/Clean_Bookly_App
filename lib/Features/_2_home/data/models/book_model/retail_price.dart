@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-class RetailPrice extends Equatable {
+class RetailPrice {
   final double? amount;
   final String? currencyCode;
 
@@ -16,6 +14,5 @@ class RetailPrice extends Equatable {
         'currencyCode': currencyCode,
       };
 
-  @override
   List<Object?> get props => [amount, currencyCode];
 }
