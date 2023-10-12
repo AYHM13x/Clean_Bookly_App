@@ -22,7 +22,6 @@ class BookDetailsView extends StatelessWidget {
   }
 }
 
-
 //  padding: EdgeInsets.only(
 //           bottom: DimensionsOfScreen.dimensionsOfHeight(context, 0),
 //           top: DimensionsOfScreen.dimensionsOfHeight(context, 2),

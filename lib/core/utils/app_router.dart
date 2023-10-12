@@ -81,16 +81,6 @@ abstract class AppRouter {
   );
 }
 
-
-
-
-
-
-
-
-
-
-
 // final _router = GoRouter(
 //   routes: [
 //     GoRoute(
