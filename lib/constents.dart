@@ -12,5 +12,7 @@ const kRoboto = "Roboto";
 const kAllFreeBooks = "Harry Potter";
 const kAllNewestFreeBooks = "head first";
 
+const kFreeBooksBox = "free_books_box";
+const kFreeNewestBooksBox = "free_newest_books_box";
 const kEuroSympol = "€";
 const kBorderRadiusValue = 15.0;
