@@ -12,10 +12,8 @@ import 'simple_bloc_observer.dart';
 void main() async {
   Bloc.observer = SimpleBlocObserver();
 
-  await Hive.initFlutter();
-  Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox<BookEntity>(kFreeBooksBox);
-  await Hive.openBox<BookEntity>(kFreeNewestBooksBox);
+  await initHive();
+
   runApp(const CleanBooklyApp());
 }
 
@@ -35,4 +33,11 @@ class CleanBooklyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> initHive() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(BookEntityAdapter());
+  await Hive.openBox<BookEntity>(kFreeBooksBox);
+  await Hive.openBox<BookEntity>(kFreeNewestBooksBox);
 }

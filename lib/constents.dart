@@ -9,8 +9,8 @@ const kMontserrat = "Montserrat";
 const kRoboto = "Roboto";
 
 //api search
-const kAllFreeBooks = "Harry Potter";
-const kAllNewestFreeBooks = "head first";
+const kFreeBooks = "Harry Potter";
+const kNewestFreeBooks = "head first";
 
 const kFreeBooksBox = "free_books_box";
 const kFreeNewestBooksBox = "free_newest_books_box";
