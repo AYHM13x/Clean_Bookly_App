@@ -16,6 +16,7 @@ class NewestFreeBooksCubit extends Cubit<NewestFreeBooksState> {
 
   Future<void> fetchNewestBooks() async {
     emit(NewestFreeBooksLoading());
+
     Either<Failures, List<BookEntity>> result =
         await fecthNewsestFreeBooksUseCase.call();
 

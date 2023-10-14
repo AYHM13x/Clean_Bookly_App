@@ -15,6 +15,7 @@ class AllFreeBooksCubit extends Cubit<AllFreeBooksState> {
   final FetchFreeBooksCardsUseCase fetchFreeBooksCardsUseCase;
   Future<void> fetchFreeBooks() async {
     emit(AllFreeBooksLoading());
+
     Either<Failures, List<BookEntity>> result =
         await fetchFreeBooksCardsUseCase.call();
 
