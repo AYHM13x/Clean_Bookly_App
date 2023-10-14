@@ -12,6 +12,6 @@ class FetchFreeBooksCardsUseCase extends UseCase<List<BookEntity>> {
 
   @override
   Future<Either<Failures, List<BookEntity>>> call() async {
-    return await homeRepo.fetchFreeBooksCards();
+    return await homeRepo.fetchAllFreeBooksCards();
   }
 }

@@ -15,7 +15,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   HomeRemoteDataSourceImpl(this.apiService);
 
   @override
-  Future<List<BookEntity>> fetchFreeBooksCards() async {
+  Future<List<BookEntity>> fetchAllFreeBooksCards() async {
     Map<String, dynamic> data = await apiService.get(endPoint: _allFreeBooks);
 
     List<BookEntity> books = getBooksList(data);
