@@ -20,40 +20,56 @@ class ServerFailure extends Failures {
       case DioExceptionType.receiveTimeout:
         return ServerFailure('Receive timeout with ApiServer');
 
+      case DioExceptionType.badCertificate:
+        return ServerFailure('bad Certificate with ApiServer');
+
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioException.response!.statusCode, dioException.response!.data);
+            dioException.response!.statusCode!, dioException.response!.data);
 
       case DioExceptionType.cancel:
         return ServerFailure('Request to ApiServer was canceled');
 
-      case DioExceptionType.unknown:
-        return ServerFailure('Unexpected Error, Please try again!');
+      case DioExceptionType.connectionError:
+        return ServerFailure('No Internet Connection');
+
+      // case DioExceptionType.unknown:
+      //   return ServerFailure('Unexpected Error, Please try again!');
       default:
-        if (dioException.message!.contains("Failed host lookup:")) {
-          return ServerFailure('No Internet Connection');
-        }
+        // if (dioException.message!.contains("Failed host lookup:")) {
+        //   return ServerFailure('No Internet Connection');
+        // }
         return ServerFailure('Opps There was an Error, Please try again!');
     }
   }
 
-  factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
-    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure("!!TURN VPN ON!!");
+  factory ServerFailure.fromResponse(int statusCode, dynamic response) {
+    if (statusCode == 400 || statusCode == 401) {
+      return ServerFailure(response["error"]["message"]);
+    } else if (statusCode == 403) {
+      return ServerFailure("Error code is $statusCode"
+          "!!TURN VPN ON!!");
     } else if (statusCode == 404) {
-      return ServerFailure('Page not found, Please try later!');
+      return ServerFailure('Error code is $statusCode'
+          'Page not found, Please try later!');
     } else if (statusCode == 500) {
-      return ServerFailure('Internal Server Error, Please try later!');
+      return ServerFailure("Error code is $statusCode"
+          "Internal Server Error, Please try later!");
     } else if (statusCode == 501) {
-      return ServerFailure('Not Implemented, Please try later!');
+      return ServerFailure('Error code is $statusCode'
+          'Not Implemented, Please try later!');
     } else if (statusCode == 502) {
-      return ServerFailure('Bad Gateway, Please try later1');
+      return ServerFailure('Error code is $statusCode'
+          'Bad Gateway, Please try later1');
     } else if (statusCode == 503) {
-      return ServerFailure('Service Unavailable, Please try later!');
+      return ServerFailure('Error code is $statusCode'
+          'Service Unavailable, Please try later!');
     } else if (statusCode == 504) {
-      return ServerFailure('Gateway Timeout, Please try later!');
+      return ServerFailure('Error code is $statusCode'
+          'Gateway Timeout, Please try later!');
     } else {
-      return ServerFailure('Opps There was an Error, Please try again!');
+      return ServerFailure('Error code is $statusCode'
+          'Opps There was an Error, Please try again!');
     }
   }
 }
