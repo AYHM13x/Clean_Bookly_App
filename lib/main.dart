@@ -13,12 +13,16 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'constents.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/service_locater.dart';
-import 'simple_bloc_observer.dart';
+import 'core/utils/simple_bloc_observer.dart';
 
 void main() async {
-  Bloc.observer = SimpleBlocObserver();
+  await Hive.initFlutter();
+  Hive.registerAdapter(BookEntityAdapter());
+  setupServiceLocater();
 
-  await initHive();
+  await Hive.openBox<BookEntity>(kFreeBooksBox);
+  await Hive.openBox<BookEntity>(kFreeNewestBooksBox);
+  Bloc.observer = SimpleBlocObserver();
 
   runApp(const CleanBooklyApp());
 }

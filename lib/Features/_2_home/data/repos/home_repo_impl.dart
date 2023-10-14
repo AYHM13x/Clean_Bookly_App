@@ -23,9 +23,10 @@ class HomeRepoImpl extends HomeRepo {
       books = homeLocalDataSource.fetchAllFreeBooksCards();
       if (books.isNotEmpty) {
         return right(books);
+      } else {
+        books = await homeRemoteDataSource.fetchAllFreeBooksCards();
+        return right(books);
       }
-      books = await homeRemoteDataSource.fetchAllFreeBooksCards();
-      return right(books);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
