@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../Features/_1_Splash/presentation/views/splash_view.dart';
 import '../../Features/_2_home/book_details_view.dart';
 import '../../Features/_2_home/home_view.dart';
-import '../../Features/search/presentation/views/search_view.dart';
+import '../../Features/_3_search/presentation/views/search_view.dart';
 import '../../constents.dart';
 
 abstract class AppRouter {
