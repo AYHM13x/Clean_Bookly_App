@@ -57,3 +57,11 @@ class ServerFailure extends Failures {
     }
   }
 }
+
+class CacheFailure extends Failures {
+  CacheFailure(super.errMessage);
+}
+
+class NetWorkFailure extends Failures {
+  NetWorkFailure(super.errMessage);
+}
