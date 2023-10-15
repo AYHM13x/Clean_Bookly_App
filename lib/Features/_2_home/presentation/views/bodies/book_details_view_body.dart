@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/_2_home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/dimensions_of_screen.dart';
@@ -6,8 +7,8 @@ import '../widgets/Custom_widgets/detail_book_section.dart';
 import '../widgets/Custom_widgets/similar_book_section.dart';
 
 class BookDetailsViewBodyOldVersion extends StatelessWidget {
-  const BookDetailsViewBodyOldVersion({super.key});
-
+  const BookDetailsViewBodyOldVersion({super.key, required this.book});
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,11 +21,11 @@ class BookDetailsViewBodyOldVersion extends StatelessWidget {
           //AppBar
           const CustomBookDetailAppBar(),
           //Book Card
-          const DetailBookSection(),
+          // const DetailBookSection(),
           SizedBox(
             height: DimensionsOfScreen.dimensionsOfHeight(context, 6.85),
           ),
-          const DetailBookSection()
+          //const DetailBookSection()
         ],
       ),
     );
@@ -33,40 +34,47 @@ class BookDetailsViewBodyOldVersion extends StatelessWidget {
 
 //didn't work with me correctly
 class BookDetailsViewBodyNewVersion extends StatelessWidget {
-  const BookDetailsViewBodyNewVersion({super.key});
-
+  const BookDetailsViewBodyNewVersion({super.key, required this.book});
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              //AppBar
-              CustomBookDetailAppBar(),
-              //Book Card
-              DetailBookSection(),
-              // const Expanded(
-              //   child: SizedBox(),
-              // ),
+    return Column(
+      children: [
+        //AppBar
+        const CustomBookDetailAppBar(),
+        SizedBox(
+          height: DimensionsOfScreen.dimensionsOfHeight(context, 88),
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    //Book Card
+                    DetailBookSection(
+                      book: book,
+                    ),
+                  ],
+                ),
+              ),
+              const SliverFillRemaining(
+                hasScrollBody: false,
+              ),
+              const SliverToBoxAdapter(
+                child: SimilarBooksSection(),
+              )
             ],
           ),
         ),
-        SliverFillRemaining(
-          hasScrollBody: false,
-        ),
-        SliverToBoxAdapter(
-          child: SimilarBooksSection(),
-        )
       ],
     );
   }
 }
 
 class BookDetailsViewBodySamyVersion extends StatelessWidget {
-  const BookDetailsViewBodySamyVersion({super.key});
-
+  const BookDetailsViewBodySamyVersion({super.key, required this.book});
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     return const CustomScrollView(
@@ -78,7 +86,7 @@ class BookDetailsViewBodySamyVersion extends StatelessWidget {
               //AppBar
               CustomBookDetailAppBar(),
               //Book Card Section
-              DetailBookSection(),
+              //DetailBookSection(),
               Expanded(
                 child: SizedBox(),
               ),

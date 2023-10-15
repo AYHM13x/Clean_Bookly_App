@@ -9,10 +9,13 @@ const kMontserrat = "Montserrat";
 const kRoboto = "Roboto";
 
 //api search
-const kFreeBooks = "Harry Potter";
-const kNewestFreeBooks = "head first";
+const String kFreeBooks = "Harry Potter";
+const String kNewestFreeBooks = "head first";
 
 const kBoxOfFreeBooks = "free_books_box";
 const kBoxOfFreeNewestBooks = "free_newest_books_box";
+
+// const String kBoxOfFreeBooks = "free_books_box";
+// const String kBoxOfFreeNewestBooks = "free_newest_books_box";
 const kEuroSympol = "€";
 const kBorderRadiusValue = 15.0;

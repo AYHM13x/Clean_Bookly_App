@@ -19,7 +19,7 @@ class _BookDetailsViewState extends State<BookDetailsView> {
   @override
   void initState() {
     BlocProvider.of<SimilarBooksCubit>(context)
-        .fetchSimilarBooks(category: widget.book.category);
+        .fetchSimilarBooks(category: widget.book.category ?? widget.book.title);
 
     super.initState();
   }
@@ -33,7 +33,9 @@ class _BookDetailsViewState extends State<BookDetailsView> {
             right: DimensionsOfScreen.dimensionsOfWidth(context, 4),
             left: DimensionsOfScreen.dimensionsOfWidth(context, 4),
           ),
-          child: const BookDetailsViewBodyNewVersion(),
+          child: BookDetailsViewBodyNewVersion(
+            book: widget.book,
+          ),
         ),
       ),
     );

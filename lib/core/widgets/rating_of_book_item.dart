@@ -32,7 +32,7 @@ class RatingOfBookItem extends StatelessWidget {
         Opacity(
           opacity: 0.5,
           child: Text(
-            book.ratingCount != 0 ? "(${book.ratingCount.toString()})" : "(??)",
+            book.ratingCount != 0 ? "(${book.ratingCount})" : "(??)",
             style: Styles.textStyle14.copyWith(
               fontWeight: FontWeight.w400,
             ),

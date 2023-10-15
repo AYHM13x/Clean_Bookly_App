@@ -1,17 +1,18 @@
+import 'package:bookly_app/Features/_2_home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/styles.dart';
 import 'rating_of_book_item.dart';
 
 class TextOfDetailOfBookView extends StatelessWidget {
-  const TextOfDetailOfBookView({super.key});
-
+  const TextOfDetailOfBookView({super.key, required this.book});
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text(
-          "The Jungle Book",
+        Text(
+          book.title,
           style: Styles.textStyle30,
         ),
         const SizedBox(
@@ -20,7 +21,7 @@ class TextOfDetailOfBookView extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            "Rudyard Kipling",
+            book.autherName ?? "there are no authers",
             style: Styles.textStyle18.copyWith(
               fontWeight: FontWeight.w500,
               fontStyle: FontStyle.italic,
@@ -30,7 +31,9 @@ class TextOfDetailOfBookView extends StatelessWidget {
         const SizedBox(
           height: 17,
         ),
-        const RatingOfBookItem(),
+        RatingOfBookItem(
+          book: book,
+        ),
       ],
     );
   }

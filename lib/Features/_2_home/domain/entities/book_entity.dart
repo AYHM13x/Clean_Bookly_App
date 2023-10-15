@@ -20,7 +20,7 @@ class BookEntity {
   @HiveField(6)
   final int? ratingCount;
   @HiveField(7)
-  final String category;
+  final String? category;
 
   BookEntity({
     required this.bookId,
