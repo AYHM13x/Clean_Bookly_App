@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/_2_home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,7 +26,16 @@ class BookListView extends StatelessWidget {
               //     duration: kNavigationToNextView);
               GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
             },
-            child: const BookItemView(),
+            child: BookItemView(
+              book: BookEntity(
+                  bookId: "0",
+                  image: "",
+                  title: "",
+                  autherName: "",
+                  price: 0.0,
+                  rating: 0.0,
+                  ratingCount: 0),
+            ),
           ),
         );
       },

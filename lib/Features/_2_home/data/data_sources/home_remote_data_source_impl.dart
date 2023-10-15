@@ -20,7 +20,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     List<BookEntity> books = getBooksList(data);
 
-    saveBooksListData(books, kFreeBooks);
+    saveBooksListData(books, kFreeBooksBox);
 
     return books;
   }
@@ -32,7 +32,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     List<BookEntity> books = getBooksList(data);
 
-    saveBooksListData(books, kNewestFreeBooks);
+    saveBooksListData(books, kFreeNewestBooksBox);
 
     return books;
   }

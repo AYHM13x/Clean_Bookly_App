@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/_2_home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -5,8 +6,9 @@ import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/styles.dart';
 
 class RatingOfBookItem extends StatelessWidget {
-  const RatingOfBookItem({super.key});
+  const RatingOfBookItem({super.key, required this.book});
 
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,8 +22,8 @@ class RatingOfBookItem extends StatelessWidget {
         const SizedBox(
           width: 6,
         ),
-        const Text(
-          "4.5",
+        Text(
+          book.rating != 0.0 ? book.rating.toString() : "??",
           style: Styles.textStyle16,
         ),
         const SizedBox(
@@ -30,7 +32,7 @@ class RatingOfBookItem extends StatelessWidget {
         Opacity(
           opacity: 0.5,
           child: Text(
-            "(4533)",
+            book.ratingCount != 0 ? "(${book.ratingCount.toString()})" : "(??)",
             style: Styles.textStyle14.copyWith(
               fontWeight: FontWeight.w400,
             ),

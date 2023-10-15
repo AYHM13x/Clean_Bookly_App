@@ -1,3 +1,4 @@
+import 'package:bookly_app/constents.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -6,7 +7,7 @@ import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/dimensions_of_screen.dart';
 import '../../../../../core/utils/styles.dart';
 import '../widgets/Custom_widgets/custom_home_app_bar.dart';
-import '../widgets/best_seller_list_view.dart';
+import '../widgets/newest_free_books_list_view.dart';
 import '../widgets/book_cards_home_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -48,8 +49,8 @@ class HomeViewBody extends StatelessWidget {
                         horizontal:
                             DimensionsOfScreen.dimensionsOfWidth(context, 2),
                       ),
-                      child: const Text(
-                        "Best Seller",
+                      child: Text(
+                        "Newest Free Books of ${kNewestFreeBooks[0].toUpperCase()}${kNewestFreeBooks.substring(1)}:",
                         style: Styles.textStyle18,
                       ),
                     ),
@@ -59,14 +60,8 @@ class HomeViewBody extends StatelessWidget {
                   ],
                 ),
               ),
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal:
-                        DimensionsOfScreen.dimensionsOfWidth(context, 2),
-                  ),
-                  child: const BestSellerListView(),
-                ),
+              const SliverToBoxAdapter(
+                child: NewestFreeBooksListView(),
               ),
             ],
           ),

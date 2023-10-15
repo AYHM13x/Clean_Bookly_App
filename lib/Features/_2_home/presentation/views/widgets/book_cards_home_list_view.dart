@@ -32,7 +32,9 @@ class BookCardsHomeListView extends StatelessWidget {
                       debugPrint(index.toString());
                       GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
                     },
-                    child: const BookCardItemView(),
+                    child: BookCardItemView(
+                      imageUrl: state.books[index].image ?? "",
+                    ),
                   ),
                 );
               },
