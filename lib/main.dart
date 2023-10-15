@@ -20,8 +20,8 @@ void main() async {
   Hive.registerAdapter(BookEntityAdapter());
   setupServiceLocater();
 
-  await Hive.openBox<BookEntity>(kFreeBooksBox);
-  await Hive.openBox<BookEntity>(kFreeNewestBooksBox);
+  await Hive.openBox<BookEntity>(kBoxOfFreeBooks);
+  await Hive.openBox<BookEntity>(kBoxOfFreeNewestBooks);
   Bloc.observer = SimpleBlocObserver();
 
   runApp(const CleanBooklyApp());
@@ -67,6 +67,6 @@ class CleanBooklyApp extends StatelessWidget {
 Future<void> initHive() async {
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox<BookEntity>(kFreeBooksBox);
-  await Hive.openBox<BookEntity>(kFreeNewestBooksBox);
+  await Hive.openBox<BookEntity>(kBoxOfFreeBooks);
+  await Hive.openBox<BookEntity>(kBoxOfFreeNewestBooks);
 }

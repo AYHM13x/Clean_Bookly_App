@@ -37,7 +37,8 @@ class NewestFreeBooksListView extends StatelessWidget {
                       // Get.to(() => const BookDetailsView(),
                       //     transition: Transition.fadeIn,
                       //     duration: kNavigationToNextView);
-                      GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
+                      GoRouter.of(context).push(AppRouter.bookDetailsViewPath,
+                          extra: state.books[index]);
                     },
                     child: BookItemView(
                       book: state.books[index],

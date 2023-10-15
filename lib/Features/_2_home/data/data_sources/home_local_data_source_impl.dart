@@ -7,14 +7,14 @@ import 'home_local_data_source.dart';
 class HomeLocalDataSourceImpl extends HomeLocalDataSource {
   @override
   List<BookEntity> fetchAllFreeBooksCards() {
-    Box<BookEntity> booksBox = Hive.box<BookEntity>(kFreeBooksBox);
+    Box<BookEntity> booksBox = Hive.box<BookEntity>(kBoxOfFreeBooks);
     List<BookEntity> booksList = booksBox.values.toList();
     return booksList;
   }
 
   @override
   List<BookEntity> fetchNewestFreeBooks() {
-    Box<BookEntity> noteBox = Hive.box<BookEntity>(kFreeNewestBooksBox);
+    Box<BookEntity> noteBox = Hive.box<BookEntity>(kBoxOfFreeNewestBooks);
     List<BookEntity> notesList = noteBox.values.toList();
     return notesList;
   }

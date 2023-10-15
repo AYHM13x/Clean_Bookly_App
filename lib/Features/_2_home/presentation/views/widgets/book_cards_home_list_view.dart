@@ -30,7 +30,8 @@ class BookCardsHomeListView extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       debugPrint(index.toString());
-                      GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
+                      GoRouter.of(context).push(AppRouter.bookDetailsViewPath,
+                          extra: state.books[index]);
                     },
                     child: BookCardItemView(
                       imageUrl: state.books[index].image ?? "",

@@ -20,7 +20,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     List<BookEntity> books = getBooksList(data);
 
-    saveBooksListData(books, kFreeBooksBox);
+    saveBooksListData(books, kBoxOfFreeBooks);
 
     return books;
   }
@@ -32,7 +32,21 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     List<BookEntity> books = getBooksList(data);
 
-    saveBooksListData(books, kFreeNewestBooksBox);
+    saveBooksListData(books, kBoxOfFreeNewestBooks);
+
+    return books;
+  }
+
+  @override
+  Future<List<BookEntity>> fetchSimilarFreeBooks(
+      {required String category}) async {
+    String similarBooks =
+        "volumes?Filtering=free-ebooks&Sorting=relevance&maxResults=40&q=subject:$category";
+    Map<String, dynamic> data = await apiService.get(endPoint: similarBooks);
+
+    List<BookEntity> books = getBooksList(data);
+
+    //saveBooksListData(books, kBoxOfFreeNewestBooks);
 
     return books;
   }
