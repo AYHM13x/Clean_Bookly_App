@@ -7,10 +7,16 @@ class EditEntryViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        CustomTextField(hintText: "free Books"),
-        CustomTextField(hintText: "newest free Books")
+        CustomTextField(
+          hintText: "free Books",
+          onChange: (p0) {},
+        ),
+        CustomTextField(
+          hintText: "newest free Books",
+          onChange: (p0) {},
+        )
       ],
     );
   }
