@@ -13,6 +13,7 @@ class TextOfDetailOfBookView extends StatelessWidget {
       children: [
         Text(
           book.title,
+          textAlign: TextAlign.center,
           style: Styles.textStyle30,
         ),
         const SizedBox(

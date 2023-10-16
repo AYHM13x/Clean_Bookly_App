@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../../../../constents.dart';
 import '../../../../core/utils/api_service.dart';
 import '../../../../core/utils/functions/save_data.dart';
@@ -8,9 +10,9 @@ import 'home_remote_data_source.dart';
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   final ApiService apiService;
   final String _allFreeBooks =
-      "volumes?Filtering=free-ebooks&maxResults=40&q=intitle:$kFreeBooks";
+      "volumes?Filtering=free-ebooks&maxResults=40&q=subject:$kFreeBooks";
   final String _newestFreeBooks =
-      "volumes?Filtering=free-ebooks&Sorting=newest&maxResults=40&q=intitle:$kNewestFreeBooks";
+      "volumes?Filtering=free-ebooks&Sorting=newest&maxResults=40&q=subject:$kNewestFreeBooks";
 
   HomeRemoteDataSourceImpl(this.apiService);
 
@@ -46,7 +48,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     List<BookEntity> books = getBooksList(data);
 
-    //saveBooksListData(books, kBoxOfFreeNewestBooks);
+    debugPrint(category);
 
     return books;
   }

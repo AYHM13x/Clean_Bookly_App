@@ -25,10 +25,7 @@ class SimilarBooksSection extends StatelessWidget {
           height: 16,
         ),
         //list of "You can also like"
-        const SizedBox(
-          height: 112,
-          child: SimilarBookListView(),
-        ),
+        const SimilarBookListView(),
         const SizedBox(
           height: 40,
         ),

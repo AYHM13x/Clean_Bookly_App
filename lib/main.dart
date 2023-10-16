@@ -19,8 +19,6 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
   setupServiceLocater();
-  debugPrint(kBoxOfFreeBooks);
-  debugPrint(kBoxOfFreeNewestBooks);
   await Hive.openBox<BookEntity>(kBoxOfFreeBooks);
   await Hive.openBox<BookEntity>(kBoxOfFreeNewestBooks);
   Bloc.observer = SimpleBlocObserver();
