@@ -1,5 +1,6 @@
 import 'package:bookly_app/Features/_2_home/domain/entities/book_entity.dart';
 import 'package:bookly_app/Features/_2_home/domain/use_cases/fetch_similar_books.dart';
+import 'package:bookly_app/Features/_2_home/edit_entry_view.dart';
 import 'package:bookly_app/Features/_2_home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly_app/core/utils/service_locater.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: editEntryViewPath,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => const EditEntryView(),
       ),
       GoRoute(
         path: searchViewPath,

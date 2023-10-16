@@ -36,15 +36,15 @@ class CleanBooklyApp extends StatelessWidget {
         BlocProvider(
           create: (context) {
             return AllFreeBooksCubit(
-                FetchFreeBooksCardsUseCase(getIt.get<HomeRepoImpl>()))
-              ..fetchFreeBooks();
+                FetchFreeBooksCardsUseCase(getIt.get<HomeRepoImpl>()));
+            //..fetchFreeBooks(entry: kFreeBooks);
           },
         ),
         BlocProvider(
           create: (context) {
             return NewestFreeBooksCubit(
-                FecthNewsestFreeBooksUseCase(getIt.get<HomeRepoImpl>()))
-              ..fetchNewestBooks();
+                FecthNewsestFreeBooksUseCase(getIt.get<HomeRepoImpl>()));
+            //..fetchNewestBooks(entry: kNewestFreeBooks);
           },
         )
       ],

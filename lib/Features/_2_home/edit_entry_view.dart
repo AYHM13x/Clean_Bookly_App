@@ -9,13 +9,16 @@ class EditEntryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
             right: DimensionsOfScreen.dimensionsOfWidth(context, 2),
             left: DimensionsOfScreen.dimensionsOfWidth(context, 2),
           ),
-          child: const EditEntryViewBody(),
+          child: const SingleChildScrollView(
+            child: EditEntryViewBody(),
+          ),
         ),
       ),
     );

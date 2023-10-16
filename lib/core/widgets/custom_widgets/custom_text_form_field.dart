@@ -35,16 +35,6 @@ class CustomTextField extends StatelessWidget {
         color: AppColors.whiteColor, // color of typing text
       ),
       decoration: InputDecoration(
-        suffixIcon: Padding(
-          padding: const EdgeInsets.only(right: 8),
-          child: Opacity(
-            opacity: 0.8,
-            child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search),
-            ),
-          ),
-        ),
         suffixIconColor: AppColors.whiteColor,
         //padding of content
         contentPadding: const EdgeInsets.symmetric(

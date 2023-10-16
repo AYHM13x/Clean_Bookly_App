@@ -1,8 +1,10 @@
 import 'package:bookly_app/Features/_2_home/presentation/manager/all_free_books_cubit/all_free_books_cubit.dart';
 import 'package:bookly_app/Features/_2_home/presentation/manager/newest_free_books_cubit/newest_free_books_cubit.dart';
 import 'package:bookly_app/constents.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hive/hive.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
@@ -41,7 +43,9 @@ class CustomHomeAppBar extends StatelessWidget {
               Icons.edit,
               color: AppColors.whiteColor,
             ),
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.editEntryViewPath);
+            },
           ),
           CustomIconButton(
             icon: const Icon(
@@ -55,8 +59,10 @@ class CustomHomeAppBar extends StatelessWidget {
                   Hive.box<BookEntity>(kBoxOfFreeNewestBooks);
               bookFreeBox.clear();
               bookNewestBox.clear();
-              BlocProvider.of<AllFreeBooksCubit>(context).fetchFreeBooks();
-              BlocProvider.of<NewestFreeBooksCubit>(context).fetchNewestBooks();
+              BlocProvider.of<AllFreeBooksCubit>(context)
+                  .fetchFreeBooks(entry: kFreeBooks);
+              BlocProvider.of<NewestFreeBooksCubit>(context)
+                  .fetchNewestBooks(entry: kNewestFreeBooks);
             },
           ),
           //icon in app bar

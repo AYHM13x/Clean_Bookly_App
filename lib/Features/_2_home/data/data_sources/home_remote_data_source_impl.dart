@@ -9,16 +9,18 @@ import 'home_remote_data_source.dart';
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   final ApiService apiService;
-  final String _allFreeBooks =
-      "volumes?Filtering=free-ebooks&maxResults=40&q=subject:$kFreeBooks";
+
   final String _newestFreeBooks =
       "volumes?Filtering=free-ebooks&Sorting=newest&maxResults=40&q=subject:$kNewestFreeBooks";
 
   HomeRemoteDataSourceImpl(this.apiService);
 
   @override
-  Future<List<BookEntity>> fetchAllFreeBooksCards() async {
-    Map<String, dynamic> data = await apiService.get(endPoint: _allFreeBooks);
+  Future<List<BookEntity>> fetchAllFreeBooksCards(
+      {required String entry}) async {
+    String allFreeBooks =
+        "volumes?Filtering=free-ebooks&maxResults=40&q=subject:$entry";
+    Map<String, dynamic> data = await apiService.get(endPoint: allFreeBooks);
 
     List<BookEntity> books = getBooksList(data);
 
@@ -28,9 +30,11 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestFreeBooks() async {
-    Map<String, dynamic> data =
-        await apiService.get(endPoint: _newestFreeBooks);
+  Future<List<BookEntity>> fetchNewestFreeBooks({required String entry}) async {
+    String newestFreeBooks =
+        "volumes?Filtering=free-ebooks&Sorting=newest&maxResults=40&q=subject:$entry";
+
+    Map<String, dynamic> data = await apiService.get(endPoint: newestFreeBooks);
 
     List<BookEntity> books = getBooksList(data);
 

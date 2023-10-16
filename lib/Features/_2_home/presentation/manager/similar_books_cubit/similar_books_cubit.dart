@@ -20,7 +20,7 @@ class SimilarBooksCubit extends Cubit<SimilarBooksState> {
     emit(SimilarBooksLoading());
 
     Either<Failures, List<BookEntity>> result = await fetchSimilarBooksUseCase
-        .requiredParamCall(category: book.category ?? kFreeBooks);
+        .requiredParamCall(param: book.category ?? kFreeBooks);
     debugPrint(book.category);
     result.fold(
       (failure) {
