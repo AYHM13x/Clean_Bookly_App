@@ -11,13 +11,13 @@ import '../../Features/_2_home/book_details_view.dart';
 import '../../Features/_2_home/data/repos/home_repo_impl.dart';
 import '../../Features/_2_home/home_view.dart';
 import '../../Features/_3_search/presentation/views/search_view.dart';
-import '../../constents.dart';
 
 abstract class AppRouter {
   //Paths
   static String splashViewPath = "/";
   static String homeViewPath = "/homeView";
   static String bookDetailsViewPath = "/homeView/bookDetailsView";
+  static String editEntryViewPath = "/homeView/editEntryView";
   static String searchViewPath = "/homeView/searchView";
 
   static final RouterConfig<Object> router = GoRouter(
@@ -28,66 +28,27 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: homeViewPath,
-        pageBuilder: (context, state) {
-          return CustomTransitionPage(
-            key: state.pageKey,
-            child: const HomeView(),
-            transitionDuration: kNavigationToNextView,
-            reverseTransitionDuration: kNavigationToNextView,
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) {
-              return FadeTransition(
-                opacity: CurveTween(curve: Curves.easeIn).animate(animation),
-                alwaysIncludeSemantics: true,
-                child: child,
-              );
-            },
-          );
-        },
+        builder: (context, state) => const HomeView(),
       ),
       GoRoute(
         path: bookDetailsViewPath,
-        pageBuilder: (context, state) {
-          return CustomTransitionPage(
-            key: state.pageKey,
-            child: BlocProvider(
-              create: (context) => SimilarBooksCubit(
-                  FetchSimilarBooksUseCase(getIt.get<HomeRepoImpl>())),
-              child: BookDetailsView(
-                book: state.extra as BookEntity,
-              ),
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => SimilarBooksCubit(
+                FetchSimilarBooksUseCase(getIt.get<HomeRepoImpl>())),
+            child: BookDetailsView(
+              book: state.extra as BookEntity,
             ),
-            transitionDuration: kNavigationToNextView,
-            reverseTransitionDuration: kNavigationToNextView,
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) {
-              return FadeTransition(
-                opacity: CurveTween(curve: Curves.easeIn).animate(animation),
-                alwaysIncludeSemantics: true,
-                child: child,
-              );
-            },
           );
         },
       ),
       GoRoute(
+        path: editEntryViewPath,
+        builder: (context, state) => const SearchView(),
+      ),
+      GoRoute(
         path: searchViewPath,
-        pageBuilder: (context, state) {
-          return CustomTransitionPage(
-            key: state.pageKey,
-            child: const SearchView(),
-            transitionDuration: kNavigationToNextView,
-            reverseTransitionDuration: kNavigationToNextView,
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) {
-              return FadeTransition(
-                opacity: CurveTween(curve: Curves.easeIn).animate(animation),
-                alwaysIncludeSemantics: true,
-                child: child,
-              );
-            },
-          );
-        },
+        builder: (context, state) => const SearchView(),
       ),
     ],
   );

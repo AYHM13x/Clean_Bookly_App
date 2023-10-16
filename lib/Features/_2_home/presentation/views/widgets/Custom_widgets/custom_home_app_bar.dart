@@ -14,11 +14,11 @@ class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({
     super.key,
     required this.image,
-    this.onPressedAppBar,
+    this.searchButton,
   });
 
   final String image;
-  final Function()? onPressedAppBar;
+  final Function()? searchButton;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +35,17 @@ class CustomHomeAppBar extends StatelessWidget {
             height: 41,
             width: 100,
           ),
+          const Expanded(child: SizedBox()),
           CustomIconButton(
             icon: const Icon(
-              Icons.cancel,
+              Icons.edit,
+              color: AppColors.whiteColor,
+            ),
+            onPressed: () {},
+          ),
+          CustomIconButton(
+            icon: const Icon(
+              Icons.refresh,
               color: AppColors.whiteColor,
             ),
             onPressed: () {
@@ -57,7 +65,7 @@ class CustomHomeAppBar extends StatelessWidget {
               Icons.search,
               color: AppColors.whiteColor,
             ),
-            onPressed: onPressedAppBar,
+            onPressed: searchButton,
           )
         ],
       ),

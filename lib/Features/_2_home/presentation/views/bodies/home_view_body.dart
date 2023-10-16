@@ -26,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
           ),
           child: CustomHomeAppBar(
             image: AssetsData.logo,
-            onPressedAppBar: () {
+            searchButton: () {
               GoRouter.of(context).push(AppRouter.searchViewPath);
             },
           ),

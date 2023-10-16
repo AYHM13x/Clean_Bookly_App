@@ -2,6 +2,7 @@ import 'package:bookly_app/Features/_2_home/data/data_sources/home_local_data_so
 import 'package:bookly_app/Features/_2_home/data/data_sources/home_remote_data_source.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../core/errors/failures.dart';
 import '../../domain/entities/book_entity.dart';
@@ -21,6 +22,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       List<BookEntity> books;
       books = homeLocalDataSource.fetchAllFreeBooksCards();
+      debugPrint(books.isNotEmpty.toString());
       if (books.isNotEmpty) {
         return right(books);
       } else {
@@ -40,6 +42,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       List<BookEntity> books;
       books = homeLocalDataSource.fetchNewestFreeBooks();
+      debugPrint(books.isNotEmpty.toString());
       if (books.isNotEmpty) {
         return right(books);
       }

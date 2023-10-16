@@ -35,7 +35,8 @@ class SimilarBookListView extends StatelessWidget {
                       // Get.to(() => const BookDetailsView(),
                       //     transition: Transition.fadeIn,
                       //     duration: kNavigationToNextView);
-                      GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
+                      GoRouter.of(context).push(AppRouter.bookDetailsViewPath,
+                          extra: state.books[index]);
                     },
                     child: BookCardItemView(
                       imageUrl: state.books[index].image,
