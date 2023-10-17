@@ -7,15 +7,16 @@ import '../similar_book_list_view.dart';
 class SimilarBooksSection extends StatelessWidget {
   const SimilarBooksSection({
     super.key,
+    required this.category,
   });
-
+  final String category;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "You can also like",
+          "You can also like ($category):",
           style: Styles.textStyle14.copyWith(
             fontWeight: FontWeight.w600,
             color: AppColors.whiteColor,

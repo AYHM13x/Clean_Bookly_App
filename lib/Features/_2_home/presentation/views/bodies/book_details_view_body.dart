@@ -61,8 +61,10 @@ class BookDetailsViewBodyNewVersion extends StatelessWidget {
               const SliverFillRemaining(
                 hasScrollBody: false,
               ),
-              const SliverToBoxAdapter(
-                child: SimilarBooksSection(),
+              SliverToBoxAdapter(
+                child: SimilarBooksSection(
+                  category: book.category!,
+                ),
               )
             ],
           ),
@@ -77,20 +79,22 @@ class BookDetailsViewBodySamyVersion extends StatelessWidget {
   final BookEntity book;
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return CustomScrollView(
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
           child: Column(
             children: [
               //AppBar
-              CustomBookDetailAppBar(),
+              const CustomBookDetailAppBar(),
               //Book Card Section
               //DetailBookSection(),
-              Expanded(
+              const Expanded(
                 child: SizedBox(),
               ),
-              SimilarBooksSection(),
+              SimilarBooksSection(
+                category: book.category!,
+              ),
             ],
           ),
         ),

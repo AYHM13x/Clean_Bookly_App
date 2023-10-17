@@ -38,7 +38,9 @@ class DetailBookSection extends StatelessWidget {
         //Pay and Preview buttons
         SizedBox(
           width: DimensionsOfScreen.dimensionsOfWidth(context, 75),
-          child: const PayAndFreePreviewButtons(),
+          child: PayAndFreePreviewButtons(
+            book: book,
+          ),
         ),
       ],
     );
