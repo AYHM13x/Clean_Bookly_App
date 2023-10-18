@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../../../core/utils/app_router.dart';
-import '../../../../../core/widgets/book_item_view.dart';
+import '../../../../../core/widgets/item_view/book_item_view.dart';
 
 class BookListView extends StatelessWidget {
   const BookListView({
@@ -28,14 +28,16 @@ class BookListView extends StatelessWidget {
             },
             child: BookItemView(
               book: BookEntity(
-                  bookId: "0",
-                  image: "",
-                  title: "",
-                  autherName: "",
-                  price: 0.0,
-                  rating: 0.0,
-                  ratingCount: 0,
-                  category: ""),
+                bookId: "0",
+                image: "",
+                title: "",
+                autherName: "",
+                price: 0.0,
+                rating: 0.0,
+                ratingCount: 0,
+                category: "",
+                previewLink: null,
+              ),
             ),
           ),
         );

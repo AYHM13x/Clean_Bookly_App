@@ -2,8 +2,8 @@ import 'package:bookly_app/Features/_2_home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/dimensions_of_screen.dart';
+import '../../../../../core/widgets/item_view/detail_book_section.dart';
 import '../widgets/Custom_widgets/custom_book_detail_app_bar.dart';
-import '../widgets/Custom_widgets/detail_book_section.dart';
 import '../widgets/Custom_widgets/similar_book_section.dart';
 
 class BookDetailsViewBodyOldVersion extends StatelessWidget {

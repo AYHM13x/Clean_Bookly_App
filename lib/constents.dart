@@ -9,11 +9,12 @@ const kMontserrat = "Montserrat";
 const kRoboto = "Roboto";
 
 //api search
-const String kFreeBooks = "people";
-const String kNewestFreeBooks = "police";
+const String kFreeBooks = "cars";
+const String kNewestFreeBooks = "man";
 
 const kBoxOfFreeBooks = "free_books_box";
 const kBoxOfFreeNewestBooks = "free_newest_books_box";
 
 const kEuroSympol = "€";
 const kBorderRadiusValue = 15.0;
+const kMaxResults = 10;

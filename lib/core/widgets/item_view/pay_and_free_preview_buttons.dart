@@ -21,7 +21,7 @@ class PayAndFreePreviewButtons extends StatelessWidget {
       children: [
         Expanded(
           child: CustomButton(
-            text: book.price == 0 ? "Free" : "19.99$kEuroSympol",
+            text: book.price == 0.0 ? "Free" : "19.99$kEuroSympol",
             style: Styles.textStyle18.copyWith(
               fontWeight: FontWeight.w600,
               color: AppColors.primaryColor,

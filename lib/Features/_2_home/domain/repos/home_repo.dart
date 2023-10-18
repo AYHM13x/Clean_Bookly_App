@@ -5,9 +5,8 @@ import '../entities/book_entity.dart';
 
 abstract class HomeRepo {
   Future<Either<Failures, List<BookEntity>>> fetchAllFreeBooksCards(
-      {required String entry});
-  Future<Either<Failures, List<BookEntity>>> fetchNewestFreeBooks(
-      {required String entry});
+      {int pageNumber = 0});
+  Future<Either<Failures, List<BookEntity>>> fetchNewestFreeBooks();
   Future<Either<Failures, List<BookEntity>>> fetchSimilarFreeBooks(
       {required String category});
 }

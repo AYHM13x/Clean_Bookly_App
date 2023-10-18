@@ -22,7 +22,7 @@ class DetailBookSection extends StatelessWidget {
         SizedBox(
           width: width40,
           child: BookCardItemView(
-            imageUrl: book.image,
+            imageUrl: book.image ?? "",
           ),
         ),
         const SizedBox(

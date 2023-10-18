@@ -18,7 +18,7 @@ class NewestFreeBooksCubit extends Cubit<NewestFreeBooksState> {
     emit(NewestFreeBooksLoading());
 
     Either<Failures, List<BookEntity>> result =
-        await fecthNewsestFreeBooksUseCase.requiredParamCall(param: entry);
+        await fecthNewsestFreeBooksUseCase.call();
 
     result.fold(
       (failure) {

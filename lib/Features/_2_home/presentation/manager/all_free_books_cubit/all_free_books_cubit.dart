@@ -13,11 +13,11 @@ class AllFreeBooksCubit extends Cubit<AllFreeBooksState> {
       : super(AllFreeBooksInitial());
 
   final FetchFreeBooksCardsUseCase fetchFreeBooksCardsUseCase;
-  Future<void> fetchFreeBooks({required String entry}) async {
+  Future<void> fetchFreeBooks({int pageNumber = 0}) async {
     emit(AllFreeBooksLoading());
 
     Either<Failures, List<BookEntity>> result =
-        await fetchFreeBooksCardsUseCase.requiredParamCall(param: entry);
+        await fetchFreeBooksCardsUseCase.call(pageNumber);
 
     result.fold((failure) {
       emit(AllFreeBooksFailure(failure.errMessage));

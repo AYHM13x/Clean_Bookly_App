@@ -2,7 +2,7 @@ import 'package:bookly_app/Features/_2_home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/dimensions_of_screen.dart';
-import '../../Features/_2_home/presentation/views/widgets/Custom_widgets/book_card_item.dart';
+import 'book_card_item.dart';
 import 'delails_of_book_item.dart';
 
 class BookItemView extends StatelessWidget {

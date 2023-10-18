@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hive/hive.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
+import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/dimensions_of_screen.dart';
 import '../../../../../../core/widgets/custom_widgets/custom_icon_button.dart';
 import '../../../../domain/entities/book_entity.dart';
@@ -15,12 +16,7 @@ import '../../../../domain/entities/book_entity.dart';
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({
     super.key,
-    required this.image,
-    this.searchButton,
   });
-
-  final String image;
-  final Function()? searchButton;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +29,7 @@ class CustomHomeAppBar extends StatelessWidget {
         children: [
           //title of app bar
           Image.asset(
-            image,
+            AssetsData.logo,
             height: 41,
             width: 100,
           ),
@@ -59,8 +55,7 @@ class CustomHomeAppBar extends StatelessWidget {
                   Hive.box<BookEntity>(kBoxOfFreeNewestBooks);
               bookFreeBox.clear();
               bookNewestBox.clear();
-              BlocProvider.of<AllFreeBooksCubit>(context)
-                  .fetchFreeBooks(entry: kFreeBooks);
+              BlocProvider.of<AllFreeBooksCubit>(context).fetchFreeBooks();
               BlocProvider.of<NewestFreeBooksCubit>(context)
                   .fetchNewestBooks(entry: kNewestFreeBooks);
             },
@@ -71,7 +66,9 @@ class CustomHomeAppBar extends StatelessWidget {
               Icons.search,
               color: AppColors.whiteColor,
             ),
-            onPressed: searchButton,
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.searchViewPath);
+            },
           )
         ],
       ),

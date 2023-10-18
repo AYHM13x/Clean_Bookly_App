@@ -6,16 +6,20 @@ import '../../../../core/errors/failures.dart';
 import '../../../../core/use_cases/use_case.dart';
 import '../entities/book_entity.dart';
 
-class FetchFreeBooksCardsUseCase extends UseCase<List<BookEntity>, String> {
+class FetchFreeBooksCardsUseCase extends UseCase<List<BookEntity>, int> {
   final HomeRepo homeRepo;
 
   FetchFreeBooksCardsUseCase(this.homeRepo);
 
   @override
-  Future<Either<Failures, List<BookEntity>>> requiredParamCall(
-      {required String param}) async {
-    return await homeRepo.fetchAllFreeBooksCards(entry: param);
+  Future<Either<Failures, List<BookEntity>>> call([int pageNumber = 0]) async {
+    return await homeRepo.fetchAllFreeBooksCards(pageNumber: pageNumber);
   }
+
+  // @override
+  // Future<Either<Failures, List<BookEntity>>> call() async {
+  //   return await homeRepo.fetchAllFreeBooksCards();
+  // }
 
   // @override
   // Future<Either<Failures, List<BookEntity>>> call() async {

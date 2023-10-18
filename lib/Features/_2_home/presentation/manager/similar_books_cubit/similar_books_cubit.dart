@@ -19,8 +19,8 @@ class SimilarBooksCubit extends Cubit<SimilarBooksState> {
   Future<void> fetchSimilarBooks({required BookEntity book}) async {
     emit(SimilarBooksLoading());
 
-    Either<Failures, List<BookEntity>> result = await fetchSimilarBooksUseCase
-        .requiredParamCall(param: book.category ?? kFreeBooks);
+    Either<Failures, List<BookEntity>> result =
+        await fetchSimilarBooksUseCase.call(book.category ?? kFreeBooks);
     debugPrint(book.category);
     result.fold(
       (failure) {

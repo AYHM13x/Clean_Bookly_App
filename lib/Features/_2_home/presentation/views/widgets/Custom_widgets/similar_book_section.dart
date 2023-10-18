@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/styles.dart';
-import '../similar_book_list_view.dart';
+import '../similar_book_list_view_bloc_builder.dart';
 
 class SimilarBooksSection extends StatelessWidget {
   const SimilarBooksSection({
@@ -26,7 +26,7 @@ class SimilarBooksSection extends StatelessWidget {
           height: 16,
         ),
         //list of "You can also like"
-        const SimilarBookListView(),
+        const SimilarBookListViewBlocBuilder(),
         const SizedBox(
           height: 40,
         ),
