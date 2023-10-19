@@ -12,8 +12,8 @@ class FetchFreeBooksCardsUseCase extends UseCase<List<BookEntity>, int> {
   FetchFreeBooksCardsUseCase(this.homeRepo);
 
   @override
-  Future<Either<Failures, List<BookEntity>>> call([int pageNumber = 0]) async {
-    return await homeRepo.fetchAllFreeBooksCards(pageNumber: pageNumber);
+  Future<Either<Failures, List<BookEntity>>> call([int param = 0]) async {
+    return await homeRepo.fetchAllFreeBooksCards(pageNumber: param);
   }
 
   // @override
