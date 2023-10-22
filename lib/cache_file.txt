@@ -223,3 +223,36 @@ class BookDetailsViewBody extends StatelessWidget {
     );
   }
 }
+
+
+late final ScrollController _scrollController;
+
+  int nextPage = 1;
+
+  bool isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  void _scrollListener() async {
+    var currentPositions = _scrollController.position.pixels;
+    var maxScrollLength = _scrollController.position.maxScrollExtent;
+    if (currentPositions >= 0.7 * maxScrollLength) {
+      if (!isLoading) {
+        isLoading = true;
+        await BlocProvider.of<NewestFreeBooksCubit>(context)
+            .fetchNewestBooks(pageNumber: nextPage++);
+        isLoading = false;
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }

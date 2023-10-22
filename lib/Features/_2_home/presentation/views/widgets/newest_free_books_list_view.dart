@@ -11,6 +11,7 @@ class NewestFreeBooksListView extends StatelessWidget {
     required this.books,
   });
   final List<BookEntity> books;
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -24,9 +25,6 @@ class NewestFreeBooksListView extends StatelessWidget {
           child: GestureDetector(
             onTap: () {
               debugPrint(index.toString());
-              // Get.to(() => const BookDetailsView(),
-              //     transition: Transition.fadeIn,
-              //     duration: kNavigationToNextView);
               GoRouter.of(context)
                   .push(AppRouter.bookDetailsViewPath, extra: books[index]);
             },

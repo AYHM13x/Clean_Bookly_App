@@ -9,8 +9,8 @@ const kMontserrat = "Montserrat";
 const kRoboto = "Roboto";
 
 //api search
-const String kFreeBooks = "cars";
-const String kNewestFreeBooks = "man";
+const String kFreeBooks = "";
+const String kNewestFreeBooks = "";
 
 const kBoxOfFreeBooks = "free_books_box";
 const kBoxOfFreeNewestBooks = "free_newest_books_box";

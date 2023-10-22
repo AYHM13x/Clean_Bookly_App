@@ -56,8 +56,7 @@ class CustomHomeAppBar extends StatelessWidget {
               bookFreeBox.clear();
               bookNewestBox.clear();
               BlocProvider.of<AllFreeBooksCubit>(context).fetchFreeBooks();
-              BlocProvider.of<NewestFreeBooksCubit>(context)
-                  .fetchNewestBooks(entry: kNewestFreeBooks);
+              BlocProvider.of<NewestFreeBooksCubit>(context).fetchNewestBooks();
             },
           ),
           //icon in app bar

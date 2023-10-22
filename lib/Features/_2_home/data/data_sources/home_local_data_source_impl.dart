@@ -6,16 +6,32 @@ import 'home_local_data_source.dart';
 
 class HomeLocalDataSourceImpl extends HomeLocalDataSource {
   @override
-  List<BookEntity> fetchAllFreeBooksCards() {
+  List<BookEntity> fetchAllFreeBooksCards({int pageNumber = 0}) {
+    int startIndex = pageNumber * kMaxResults;
+    int endIndex = (pageNumber + 1) * kMaxResults;
+
     Box<BookEntity> booksBox = Hive.box<BookEntity>(kBoxOfFreeBooks);
-    List<BookEntity> booksList = booksBox.values.toList();
+    int length = booksBox.values.length;
+    if (startIndex >= length || endIndex > length) {
+      return [];
+    }
+    List<BookEntity> booksList =
+        booksBox.values.toList().sublist(startIndex, endIndex);
     return booksList;
   }
 
   @override
-  List<BookEntity> fetchNewestFreeBooks() {
-    Box<BookEntity> noteBox = Hive.box<BookEntity>(kBoxOfFreeNewestBooks);
-    List<BookEntity> notesList = noteBox.values.toList();
+  List<BookEntity> fetchNewestFreeBooks({int pageNumber = 0}) {
+    int startIndex = pageNumber * kMaxResults;
+    int endIndex = (pageNumber + 1) * kMaxResults;
+
+    Box<BookEntity> booksBox = Hive.box<BookEntity>(kBoxOfFreeNewestBooks);
+    int length = booksBox.values.length;
+    if (startIndex >= length || endIndex > length) {
+      return [];
+    }
+    List<BookEntity> notesList =
+        booksBox.values.toList().sublist(startIndex, endIndex);
     return notesList;
   }
 }

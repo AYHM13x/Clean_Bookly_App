@@ -27,9 +27,9 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestFreeBooks() async {
+  Future<List<BookEntity>> fetchNewestFreeBooks({int pageNumber = 0}) async {
     String newestFreeBooks =
-        "volumes?Filtering=free-ebooks&Sorting=newest&maxResults=40&q=subject:$kNewestFreeBooks";
+        "volumes?Filtering=free-ebooks&Sorting=newest&startIndex=${pageNumber * kMaxResults}&maxResults=$kMaxResults&q=subject:$kNewestFreeBooks";
 
     Map<String, dynamic> data = await apiService.get(endPoint: newestFreeBooks);
 

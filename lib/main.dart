@@ -45,7 +45,7 @@ class CleanBooklyApp extends StatelessWidget {
           create: (context) {
             return NewestFreeBooksCubit(
                 FecthNewsestFreeBooksUseCase(getIt.get<HomeRepoImpl>()))
-              ..fetchNewestBooks(entry: kNewestFreeBooks);
+              ..fetchNewestBooks();
             //..fetchNewestBooks(entry: kNewestFreeBooks);
           },
         )

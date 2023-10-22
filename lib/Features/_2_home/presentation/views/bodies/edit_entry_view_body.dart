@@ -67,8 +67,7 @@ class _EditEntryViewBodyState extends State<EditEntryViewBody> {
               bookFreeBox.clear();
               bookNewestBox.clear();
               BlocProvider.of<AllFreeBooksCubit>(context).fetchFreeBooks();
-              BlocProvider.of<NewestFreeBooksCubit>(context)
-                  .fetchNewestBooks(entry: newestFreeBooksEntry);
+              BlocProvider.of<NewestFreeBooksCubit>(context).fetchNewestBooks();
               GoRouter.of(context).pop();
             },
           ),
