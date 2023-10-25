@@ -1,6 +1,5 @@
 import 'package:bookly_app/Features/_2_home/domain/entities/book_entity.dart';
 import 'package:bookly_app/Features/_2_home/domain/use_cases/fetch_similar_books.dart';
-import 'package:bookly_app/Features/_2_home/edit_entry_view.dart';
 import 'package:bookly_app/Features/_2_home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly_app/core/utils/service_locater.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../Features/_1_Splash/presentation/views/splash_view.dart';
-import '../../Features/_2_home/book_details_view.dart';
 import '../../Features/_2_home/data/repos/home_repo_impl.dart';
-import '../../Features/_2_home/home_view.dart';
+import '../../Features/_2_home/presentation/book_details_view.dart';
+import '../../Features/_2_home/presentation/edit_entry_view.dart';
+import '../../Features/_2_home/presentation/home_view.dart';
 import '../../Features/_3_search/presentation/views/search_view.dart';
 
 abstract class AppRouter {

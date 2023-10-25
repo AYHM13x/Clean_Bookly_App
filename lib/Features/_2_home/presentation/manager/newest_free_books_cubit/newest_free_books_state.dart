@@ -11,6 +11,8 @@ class NewestFreeBooksInitial extends NewestFreeBooksState {}
 
 class NewestFreeBooksLoading extends NewestFreeBooksState {}
 
+class NewestFreeBooksPaginationLoading extends NewestFreeBooksState {}
+
 class NewestFreeBooksSuccess extends NewestFreeBooksState {
   final List<BookEntity> books;
 

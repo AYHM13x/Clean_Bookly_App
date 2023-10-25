@@ -11,6 +11,8 @@ class AllFreeBooksInitial extends AllFreeBooksState {}
 
 class AllFreeBooksLoading extends AllFreeBooksState {}
 
+class AllFreeBooksPaginationLoading extends AllFreeBooksState {}
+
 class AllFreeBooksSuccess extends AllFreeBooksState {
   final List<BookEntity> books;
 

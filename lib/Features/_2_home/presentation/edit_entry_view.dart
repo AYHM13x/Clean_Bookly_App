@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../core/utils/dimensions_of_screen.dart';
-import 'presentation/views/bodies/edit_entry_view_body.dart';
+import '../../../core/utils/dimensions_of_screen.dart';
+import 'views/bodies/edit_entry_view_body.dart';
+
+
 
 class EditEntryView extends StatelessWidget {
   const EditEntryView({super.key});
