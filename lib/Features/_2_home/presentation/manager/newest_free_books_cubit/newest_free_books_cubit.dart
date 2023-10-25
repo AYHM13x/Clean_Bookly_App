@@ -26,14 +26,14 @@ class NewestFreeBooksCubit extends Cubit<NewestFreeBooksState> {
 
     result.fold(
       (failure) {
-        emit(
-          NewestFreeBooksFailure(failure.errMessage),
-        );
+        if (pageNumber == 0) {
+          emit(NewestFreeBooksFailure(failure.errMessage));
+        } else {
+          emit(NewestFreeBooksPaginationFailure(failure.errMessage));
+        }
       },
       (newestFreeBooks) {
-        emit(
-          NewestFreeBooksSuccess(newestFreeBooks),
-        );
+        emit(NewestFreeBooksSuccess(newestFreeBooks));
       },
     );
   }

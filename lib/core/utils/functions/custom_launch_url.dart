@@ -11,6 +11,6 @@ Future<void> customLaunchUrl(BuildContext context, BookEntity book) async {
       await launchUrl(url);
     }
   } else {
-    customShowSnackBar(context, "Free Preview is Unavailable");
+    customShowSnackBar(context, message: "Free Preview is Unavailable");
   }
 }

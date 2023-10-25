@@ -24,3 +24,9 @@ class AllFreeBooksFailure extends AllFreeBooksState {
 
   const AllFreeBooksFailure(this.errMessage);
 }
+
+class AllFreeBooksPaginationFailure extends AllFreeBooksState {
+  final String errMessage;
+
+  const AllFreeBooksPaginationFailure(this.errMessage);
+}

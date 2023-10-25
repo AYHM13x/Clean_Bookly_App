@@ -24,3 +24,9 @@ class NewestFreeBooksFailure extends NewestFreeBooksState {
 
   const NewestFreeBooksFailure(this.errMessage);
 }
+
+class NewestFreeBooksPaginationFailure extends NewestFreeBooksState {
+  final String errMessage;
+
+  const NewestFreeBooksPaginationFailure(this.errMessage);
+}

@@ -13,11 +13,16 @@ import '../../../../../../core/utils/dimensions_of_screen.dart';
 import '../../../../../../core/widgets/custom_widgets/custom_icon_button.dart';
 import '../../../../domain/entities/book_entity.dart';
 
-class CustomHomeAppBar extends StatelessWidget {
+class CustomHomeAppBar extends StatefulWidget {
   const CustomHomeAppBar({
     super.key,
   });
 
+  @override
+  State<CustomHomeAppBar> createState() => _CustomHomeAppBarState();
+}
+
+class _CustomHomeAppBarState extends State<CustomHomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,7 +45,7 @@ class CustomHomeAppBar extends StatelessWidget {
               color: AppColors.whiteColor,
             ),
             onPressed: () {
-              GoRouter.of(context).push(AppRouter.editEntryViewPath);
+              //GoRouter.of(context).push(AppRouter.editEntryViewPath);
             },
           ),
           CustomIconButton(

@@ -21,7 +21,7 @@ class EditEntryViewBody extends StatefulWidget {
 }
 
 class _EditEntryViewBodyState extends State<EditEntryViewBody> {
-  String freeBooksEntry = kFreeBooks;
+  String freeBooksEntry = kAllFreeBooks;
   String newestFreeBooksEntry = kNewestFreeBooks;
 
   @override

@@ -16,7 +16,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchAllFreeBooksCards({int pageNumber = 0}) async {
     // volumes?startIndex=10&maxResults=40&q=subject:
     String freeBooks =
-        "volumes?Filtering=free-ebooks&startIndex=${pageNumber * kMaxResults}&maxResults=$kMaxResults&q=subject:$kFreeBooks";
+        "volumes?Filtering=free-ebooks&startIndex=${pageNumber * kMaxResults}&maxResults=$kMaxResults&q=subject:$kAllFreeBooks";
     Map<String, dynamic> data = await apiService.get(endPoint: freeBooks);
 
     List<BookEntity> books = getBooksList(data);

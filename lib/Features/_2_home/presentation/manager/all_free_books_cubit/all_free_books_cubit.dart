@@ -24,7 +24,11 @@ class AllFreeBooksCubit extends Cubit<AllFreeBooksState> {
         await fetchFreeBooksCardsUseCase.call(pageNumber);
 
     result.fold((failure) {
-      emit(AllFreeBooksFailure(failure.errMessage));
+      if (pageNumber == 0) {
+        emit(AllFreeBooksFailure(failure.errMessage));
+      } else {
+        emit(AllFreeBooksPaginationFailure(failure.errMessage));
+      }
     }, (freeBooks) {
       emit(AllFreeBooksSuccess(freeBooks));
     });

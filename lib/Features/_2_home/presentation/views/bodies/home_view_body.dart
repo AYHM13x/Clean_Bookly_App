@@ -1,12 +1,14 @@
+import 'package:bookly_app/constents.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/dimensions_of_screen.dart';
+import '../../../../../core/utils/functions/to_upper_case_of_first_letter.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../manager/newest_free_books_cubit/newest_free_books_cubit.dart';
 import '../widgets/Custom_widgets/custom_home_app_bar.dart';
-import '../widgets/newest_free_books_list_view_bloc_builder.dart';
-import '../widgets/book_cards_home_list_view_bloc_builder.dart';
+import '../widgets/newest_free_books_list_view_bloc_consumer.dart';
+import '../widgets/book_cards_home_list_view_bloc_consumer.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({
@@ -34,7 +36,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   void _scrollListener() async {
     var currentPositions = _scrollController.position.pixels;
     var maxScrollLength = _scrollController.position.maxScrollExtent;
-    if (currentPositions >= 0.75 * maxScrollLength) {
+    if (currentPositions >= 0.6 * maxScrollLength) {
       if (!isLoading) {
         isLoading = true;
         await BlocProvider.of<NewestFreeBooksCubit>(context)
@@ -77,15 +79,17 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                         horizontal:
                             DimensionsOfScreen.dimensionsOfWidth(context, 2),
                       ),
-                      child: const Text(
-                        "Free Books:",
+                      child: Text(
+                        kAllFreeBooks != ""
+                            ? "Free Books of ${kAllFreeBooks.toUpperCaseFirstLetter()}:"
+                            : "Free Books:",
                         style: Styles.textStyle18,
                       ),
                     ),
                     const SizedBox(
                       height: 16,
                     ),
-                    const BookCardsHomeListViewBlocBuilder(),
+                    const BookCardsHomeListViewBlocConsumer(),
                     const SizedBox(
                       height: 36,
                     ),
@@ -94,8 +98,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                         horizontal:
                             DimensionsOfScreen.dimensionsOfWidth(context, 2),
                       ),
-                      child: const Text(
-                        "Newest Free Books :",
+                      child: Text(
+                        kNewestFreeBooks != ""
+                            ? "Newest Free Books of ${kNewestFreeBooks.toUpperCaseFirstLetter()}:"
+                            : "Newest Free Books:",
                         style: Styles.textStyle18,
                       ),
                     ),
@@ -106,7 +112,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 ),
               ),
               const SliverToBoxAdapter(
-                child: NewestFreeBooksListViewBlocBuilder(),
+                child: NewestFreeBooksListViewBlocConsumer(),
               ),
             ],
           ),

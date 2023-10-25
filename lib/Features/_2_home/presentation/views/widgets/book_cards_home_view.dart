@@ -36,7 +36,7 @@ class _BookCardsHomeListViewState extends State<BookCardsHomeListView> {
   void _scrollListener() async {
     var currentPositions = _scrollController.position.pixels;
     var maxScrollLength = _scrollController.position.maxScrollExtent;
-    if (currentPositions >= 0.75 * maxScrollLength) {
+    if (currentPositions >= 0.6 * maxScrollLength) {
       if (!isLoading) {
         isLoading = true;
         await BlocProvider.of<AllFreeBooksCubit>(context)
